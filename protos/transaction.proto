@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package model;
+
+import "google/protobuf/timestamp.proto";
+
+service Transaction {
+  rpc setCollectedCoin(CollectedCoinRequest) returns (CollectedCoinResponse);
+  rpc setKilledMonster(KilledMonsterRequest) returns (KilledMonsterResponse);
+  rpc setDeath(DeathRequest) returns (DeathResponse);
+}
+
+message CollectedCoinRequest {
+  int64 id = 1;
+  int64 user_id = 2;
+  double value = 3;
+}
+
+message CollectedCoinResponse {
+  int64 value_all = 1;
+  int64 trophy_coin_id = 2;
+}
+
+message KilledMonsterRequest {
+  int64 id = 1;
+  int64 user_id = 2;
+  int64 monster_id = 3;
+}
+
+message KilledMonsterResponse {
+  int64 qtd_all = 1;
+  int64 trophy_monster_id = 2;
+}
+
+message DeathRequest {
+  int64 id = 1;
+  int64 user_id = 2;
+  google.protobuf.Timestamp time = 3;
+}
+
+message DeathResponse {
+  int64 qtd_all = 1;
+  int64 trophy_death_id = 2;
+}

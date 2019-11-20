@@ -1,2 +1,2 @@
-# trophy-count-model
+# Trophy Count Model
 Trophy counting ecosystem
