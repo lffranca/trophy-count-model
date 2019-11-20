@@ -23,6 +23,7 @@ func InitGRPC(db *sql.DB) error {
 
 	model.RegisterTransactionServer(s, &transactionGRPC{DB: db})
 	model.RegisterTrophyServer(s, &trophyGRPC{DB: db})
+	model.RegisterPersonServer(s, &personGRPC{DB: db})
 
 	if err := s.Serve(lis); err != nil {
 		return err
