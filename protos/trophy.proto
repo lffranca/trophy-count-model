@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package model;
+
+service Trophy {
+  rpc getTrophyCoin(DefaultRequest) returns (TrophyCoinResponse);
+  rpc getTrophyDeath(DefaultRequest) returns (TrophyDeathResponse);
+  rpc getTrophyMonster(DefaultRequest) returns (TrophyMonsterResponse);
+}
+
+message DefaultRequest {
+  int64 user_id = 1;
+}
+
+message TrophyCoinResponse {
+  int64 value_all = 1;
+  int64 trophy_coin_id = 2;
+  int64 trophy_coin_starting = 3;
+  string trophy_coin_name = 4;
+}
+
+message TrophyDeathResponse {
+  int64 value_all = 1;
+  int64 trophy_death_id = 2;
+  int64 trophy_death_starting = 3;
+  string trophy_death_name = 4;
+}
+
+message TrophyMonsterResponse {
+  repeated KilledMonster killed_monster = 1;
+}
+
+message KilledMonster {
+  int64 value_all = 1;
+  int64 trophy_id = 2;
+  int64 trophy_monster_id = 3;
+  int64 trophy_monster_starting = 4;
+  string trophy_monster_name = 5;
+}
